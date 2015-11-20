@@ -1,12 +1,13 @@
 from threading import Thread
 
+from twilio import TwilioRestException
 from batch_sender import BatchSender
 
 def sms_associated(sender, message_body, to_numbers, from_num, callback=None, on_fail=None):
     for to_num in to_numbers:
         try:
             sender.send(message_body, to_num, from_num, callback=callback)
-        except:
+        except TwilioRestException as e:
             if on_fail:
                 on_fail({
                     'message': message_body,
