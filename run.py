@@ -18,12 +18,12 @@ client.add_from_number('+17032935994')
 subs = ['Hackers']
 # client.add_to_number('+16096479885', subs=subs)
 
-f = open('hackers.txt', 'rb')
-numbers = f.readlines()
-numbers = [n.strip() for n in numbers]
-
-for n in numbers:
-    client.add_to_number(n, subs=subs)
+# f = open('hackers.txt', 'rb')
+# numbers = f.readlines()
+# numbers = [n.strip() for n in numbers]
+#
+# for n in numbers:
+#     client.add_to_number(n, subs=subs)
 
 def callback(payload):
     print payload
@@ -32,5 +32,5 @@ def onfail(payload):
     print 'Failed'
     print payload
 
-text = 'Hey hackers! Opening Ceremony is delayed until 11am! We\'ll start walking over from Norris at 10:30.'
+text = 'Sleeping spaces are available in the Evans Room and the first floor!'
 client.send_to_subscription(subs[0], text, callback=callback)
